@@ -27,8 +27,8 @@ public class ConsoleRunner implements CommandLineRunner {
 
     private List<Thread> fillClients(int count) {
         var clients = new ArrayList<Thread>();
-        for (int i = 1; i < count; i++) {
-            clients.add(new Thread(new Client(new RestTemplate(), i)));
+        for (Integer id : idList) {
+            clients.add(new Thread(new Client(new RestTemplate(), id)));
         }
         return clients;
     }
